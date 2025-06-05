@@ -7,7 +7,7 @@ A Next.js application for extracting and visualizing source documents from AI AP
 
 ## Features Preview
 
-![Application Demo](https://github.com/bibinprathap/ai-doc-explorer/AI-document-Sources-explorer.gif?raw=true)
+![Application Demo](https://github.com/bibinprathap/ai-doc-explorer/blob/master/AI-document-Sources-explorer.gif?raw=true)
 
 ➡️ [Try the live demo](https://ai-doc-explorer.netlify.app/)
 
