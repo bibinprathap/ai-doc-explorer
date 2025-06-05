@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import {
   query,
   FlowiseResponse,
@@ -24,7 +24,7 @@ export default function SourcesPage() {
   const [response, setResponse] = useState<FlowiseResponse | null>(null);
   const [sourceDocuments, setSourceDocuments] = useState<DocumentSource[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [chatFlows, setChatFlows] = useState([]);
+ 
  
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -83,47 +83,7 @@ export default function SourcesPage() {
     }
   };
 
-
-//   useEffect(() => {
-//     const fetchChatFlows = async () => {
-//       try {
-//         const response = await fetch("https://flow.spaceaiapp.com/api/v1/chatflows?type=CHATFLOW", {
-//   "headers": {
-//     "accept": "application/json, text/plain, */*",
-//     "accept-language": "en-US,en;q=0.9",
-//     "if-none-match": "W/\"2927c-L3zMIR7TOBPUmbZeWxeuzNB5ezM\"",
-//     "sec-ch-ua": "\"Chromium\";v=\"136\", \"Google Chrome\";v=\"136\", \"Not.A/Brand\";v=\"99\"",
-//     "sec-ch-ua-mobile": "?0",
-//     "sec-ch-ua-platform": "\"Windows\"",
-//     "sec-fetch-dest": "empty",
-//     "sec-fetch-mode": "cors",
-//     "sec-fetch-site": "same-origin",
-//     "x-request-from": "internal",
-//     "cookie": "ajs_user_id=TNgszr1taAs4G5GPDwUAA; ajs_anonymous_id=7c3bfe7f-770d-4860-8446-8ba76d514181; ph_phc_7F92HoXJPeGnTKmYv0eOw62FurPMRW9Aqr0TPrDzvHh_posthog=%7B%22distinct_id%22%3A%22TNgszr1taAs4G5GPDwUAA%22%2C%22%24sesid%22%3A%5B1748874464438%2C%220197310a-8c98-743d-86fc-44fde49a976d%22%2C1748874464408%5D%2C%22%24epp%22%3Atrue%2C%22%24initial_person_info%22%3A%7B%22r%22%3A%22%24direct%22%2C%22u%22%3A%22https%3A%2F%2Faiagent.spaceaiapp.com%2Fprojects%2FwQZEZ2SwG7pIFZZPhs2h0%2Fflows%22%7D%7D; refreshToken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRjODA5MGRhLTA1YTgtNDFiMS05NzYyLThjNzZkM2YxN2FhNyIsInVzZXJuYW1lIjoic2lqbyIsIm1ldGEiOiIwNzFmZDUwNjFlMTMyNzc2Zjk3MzJlNzI4NTBiYjIxMDo3MWNlNzJjZmEzMGQzZDE4MGJjYzY5YjFiNTFmODBkMTNmN2ExNzVlODFiNmY5ZDFkZmY5OWZiMmVmNzA4OWIxNzc2ZGRjNmNlYWEzMzliYjk4YzVlZGJhNTc4ZDU5OWM0ZmIxMTkxZjlhYWMzODRkNGUwNWViYWVlODgxN2EzOWNjNzFkZWZlYzMxZmYyMzdjMjM0Y2E1ZDdjNDlmYjE2IiwiaWF0IjoxNzQ5MDkyNjU3LCJuYmYiOjE3NDkwOTI2NTcsImV4cCI6MTc1Njg2ODY1NywiYXVkIjoiQVVESUVOQ0UiLCJpc3MiOiJJU1NVRVIifQ.DIW1CSckICnyF8tEHyFrgLAoz3iWQm_N3BqDCrGmJ64; connect.sid=s%3AD7Yo5jWJ_ZYDipRsyOL2hyTyKFp4gYzI.mT8%2B%2FmsWoD2mem6hzphmB1rZtMbaMW9xfpzq7y6im%2FE; mp_acd87c5a50b56df91a795e999812a3a4_mixpanel=%7B%22distinct_id%22%3A%20%22%408A7DD0B35FF72036504BC059133F43BA%22%2C%22%24device_id%22%3A%20%221972b5a747227428-000b37a6b3ac9a8-26011f51-1704a0-1972b5a747227428%22%2C%22server_id%22%3A%20%22F15CD1FA4E12B9EB53AE87DE985E683E%22%2C%22hostApp%22%3A%20%22web-2%22%2C%22speckleVersion%22%3A%20%22custom%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%2C%22__mps%22%3A%20%7B%7D%2C%22__mpso%22%3A%20%7B%7D%2C%22__mpus%22%3A%20%7B%7D%2C%22__mpa%22%3A%20%7B%7D%2C%22__mpu%22%3A%20%7B%7D%2C%22__mpr%22%3A%20%5B%5D%2C%22__mpap%22%3A%20%5B%5D%2C%22%24user_id%22%3A%20%22%408A7DD0B35FF72036504BC059133F43BA%22%7D; token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRjODA5MGRhLTA1YTgtNDFiMS05NzYyLThjNzZkM2YxN2FhNyIsInVzZXJuYW1lIjoic2lqbyIsIm1ldGEiOiJkZWMwY2I0ZGZkMGNhMzJkNWI1YTczODczOWIxODI1ZjoxZGMyYzI4ZDM5MzAzYzljZTJkN2QzNGE3ZTYwOGE2NjBmYTcyMWQ2MDRiODAyYmRmMGFkYWVmOWE5NWQxN2FhMmQ0MzIyMTJjMWE3OGExNDAyYmNkODI1NWMxNmZlMTYwYTI0ZDJkZjYyMTk1MjFkYmI5ODhhMGNhYWNhNWVhNjg2ZTg5NGJmZmY5ZDY1ZTI4NjY1ZDE3YzQ3M2M4YzFlIiwiaWF0IjoxNzQ5MTA2ODE2LCJuYmYiOjE3NDkxMDY4MTYsImV4cCI6MTc0OTExMDQxNiwiYXVkIjoiQVVESUVOQ0UiLCJpc3MiOiJJU1NVRVIifQ.q3Bej-PZ8z0qRsmhPAgCatngwCmH_tA_YnX0ks1hMtI",
-//     "Referer": "https://flow.spaceaiapp.com/chatflows",
-//     "Referrer-Policy": "strict-origin-when-cross-origin"
-//   },
-//   "body": null,
-//   "method": "GET"
-// });
-
-//         if (!response.ok) {
-//           throw new Error(`HTTP error! status: ${response.status}`);
-//         }
-
-//         const data = await response.json();
-//         setChatFlows(data);
-//       } catch (err) {
-//         setError(err.message);
-//         console.error("Error fetching chat flows:", err);
-//       } finally {
-//         setLoading(false);
-//       }
-//     };
-
-//     fetchChatFlows();
-//   }, []); // Empty dependency array means this runs once on mount
-
+ 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
   return (
