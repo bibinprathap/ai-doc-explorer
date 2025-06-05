@@ -1,4 +1,21 @@
- 
+# AI Document Explorer
+
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://ai-doc-explorer.netlify.app/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+A Next.js application for extracting and visualizing source documents from AI API responses.
+
+## Features Preview
+
+![Application Demo](https://github.com/bibinprathap/ai-doc-explorer/AI-document-Sources-explorer.gif?raw=true)
+
+➡️ [Try the live demo](https://ai-doc-explorer.netlify.app/)
+
+## Key Features
+- Sources Explorer for formatted content extraction
+- Specialized tools for different API response formats
+- Clean, responsive interface built with Tailwind CSS 
+
 ## Getting Started
 
 First, run the development server:
